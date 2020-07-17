@@ -1,0 +1,21 @@
+Package: TMS
+Title: Bayesian Inference for Two-State Markov Switching Model
+Version: 0.0.1
+Authors@R: 
+    person(given = "Haohan",
+           family = "li",
+           role = c("aut", "cre"),
+           email = "xavier.li@uwaterloo.ca")
+    person(given = "Ye",
+           family = "Meng",
+           role = c("aut", "cre"),
+           email = "ye.meng@uwaterloo.ca")
+Description: Parameter inference of two-sate Markov switching model of mixture Gaussian distributio. The package also provide tools for Gibbs-sampling-augmented Variance Ratio test. 
+License: GPL-3
+Encoding: UTF-8
+LazyData: true
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.1.0
+Suggests: 
+    testthat
+Imports: stats
