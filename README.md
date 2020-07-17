@@ -1,6 +1,34 @@
 # Bayesian Inference for Two-State Markov Switching Model
 
+This is a coursework project. We will define the two-state Markov Switching model firstly, and streamline how to implement the Gibbs sampler. In the last subsection, it will emphasize the reasoning and methodology of VR test.
 
+## Markov Switching Model
+
+In this paper, we've chosen a Markov Switching model with two regimes. It can be embodied as a K-state Hidden Markov Model(HMM) with observation $y_t$ follows a mixture Gaussian.
+
+$$
+y_t \sim N(0,\ \sigma_t^2),\ \text{where } \
+\sigma_t^2 = \sum_{k=1}^2 \sigma_k^2\  \mathbb{I}\{S_{t}=k\}\ \\ 
+$$
+Where the parameters are all unobserved and to be estimated:
+
+* $\sigma_1<\sigma_2$ 
+
+* The state variable, $S_t$, follows a Markov process with transition probability $p_{ij} = \Pr[S_t = j | S_{t-1}=i], \sum_{j=1}^K p_{ij} = 1, \ i, j = 1,2$. 
+
+## Gibbs Sampler 
+
+The Gibbs sampling method will be implemented to estimation. Let $\vec{y_T}=\{y_t, t=1,\dots,T\}$, $\vec{S_T} = \{S_t, t=1,\dots,T\}$,  $\theta = \{\sigma_1^2, \sigma_2^2, \vec{p}\}, \ \vec{p} = (p_{12}, p_{21})^T$. Besides, let $\theta_{-i}$ denote the value of $\theta$ without the $i^{th}$ element.
+
+The paramters  ${\vec{S_t}, \theta}$ is to be updated by Gibbs sampler in the following steps. 
+
+* Step 1 Draw $\vec{S_T}\mid \theta$;
+
+* Step 2 Draw $\sigma_1^2 \mid \vec{S_T}$;
+
+* Step 3 Draw $\sigma_2^2 \mid \sigma_1^2, \vec{S_T}$;
+
+* Step 4 Draw $\vec{p}\mid \vec{S_T}$
 
 We took burn-in samples of 1,000 and samples of 10,000 in emprical study. 
 
